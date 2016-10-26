@@ -1,25 +1,30 @@
-var sentence = "mom om";
+var sentence = prompt("Check if it's a palindrome here!");
 var symbols = [".", "," ," " ,"-", "!" ,"'"];
-for (var counter = 0; counter < sentence.length; counter += 1){
-  if (sentence[counter].includes(symbols)){
-    sentence[counter]="";
-  }
-}
+
 sentence = sentence.toLowerCase();
 var sentArray = sentence.split("");
 var reverseArray = sentArray.slice();
 reverseArray = reverseArray.reverse();
-// for (var counter = 0; counter <= reverseArray.length; counter += 1){
-// 	if (symbols.indexOf(reverseArray[counter]) >-1)  {
-//   	reverseArray[counter];
-//   };
-// };		alert(reverseArray);
 
-for (var counter = 0; counter <= reverseArray.length; counter += 1){
+
+
+for (var counter = sentArray.length-1; counter >= 0; counter --){
+	if (symbols.indexOf(sentArray[counter]) >-1)  {
+ 	sentArray.splice(counter,1);
+  };
+};	//alert(sentArray)
+
+for (var counter = reverseArray.length-1; counter >= 0; counter --){
+	if (symbols.indexOf(reverseArray[counter]) >-1)  {
+  	reverseArray.splice(counter,1);
+  };
+};	//alert(reverseArray)
+
+for (var counter = 0; counter <= reverseArray.length; counter ++){
 	if (sentArray[counter]  !== reverseArray[counter]){
   alert("Not a palindrome");
   break;
-  } else if (counter === reverseArray.length ) {
+} else if (counter === reverseArray.length ) {
 		alert("!!!");
   };
 };
